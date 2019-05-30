@@ -13,10 +13,10 @@ public class Exercicio_80 {
 
 		while (!nome.equals("@")) {
 			System.out.println("Informe o nome do atleta ");
-			nome = scn.next();
+			nome = scn.nextLine();
 			while (nome.length() < 2 && !nome.equals("@")) {
 				System.out.println("Informe um nome com pelo menos 2 letras.");
-				nome = scn.next();
+				nome = scn.nextLine();
 			}
 
 			System.out.println("Informe o sexo: (M ou F) ");
@@ -46,7 +46,7 @@ public class Exercicio_80 {
 				System.out.println("Idade inválida! Informe a idade: ");
 				idade = scn.nextInt();
 			}
-
+			scn.nextLine();
 			if (!nome.equals("@")) {
 				totalId += idade;
 				qtd++;
@@ -65,10 +65,18 @@ public class Exercicio_80 {
 		}
 		System.out.println("\n******FIM DA LEITURA DE ATLETAS******");
 		if (qtd > 0) {
-			mediaId = totalId / qtd;
-			System.out.println("O atleta do sexo masculino mais alto é o " + nmAlto + ", que tem " + maisAlto + "m");
-			System.out
-					.println("A atleta do sexo feminino mais pesada é a " + nmPesada + ", que pesa " + maisPesa + "kg");
+			mediaId = (double) totalId / qtd;
+
+			if (maisAlto != 0)
+				System.out
+						.println("O atleta do sexo masculino mais alto é o " + nmAlto + ", que tem " + maisAlto + "m");
+			else
+				System.out.println("Não há atletas do sexo masculino.");
+			if (maisPesa != 0)
+				System.out.println(
+						"A atleta do sexo feminino mais pesada é a " + nmPesada + ", que pesa " + maisPesa + "kg");
+			else
+				System.out.println("Não há atletas do sexo feminino.");
 			System.out.println("A média geral da idade é " + mediaId + " anos.");
 		} else {
 			System.out.println("Não foram informados atletas.");

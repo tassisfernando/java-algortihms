@@ -23,6 +23,7 @@ public class BinaryArrayToNumberTest {
 		int num = BinaryArrayToNumber.ConvertBinaryArrayToInt(binary);
 		
 		System.out.println(num);
+		scn.close();
 	}
 	
 }

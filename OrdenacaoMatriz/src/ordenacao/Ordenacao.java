@@ -14,7 +14,7 @@ public class Ordenacao {
 			System.out.println("Informe as dimensões da matriz: \n Linhas: ");
 			row = scn.nextInt();
 		}
-		System.out.println("Colunas: ");
+		System.out.println(" Colunas: ");
 		int col = scn.nextInt();
 		while (col <= 0) {
 			System.out.println("Informe as dimensões da matriz: \n Colunas: ");
@@ -24,27 +24,11 @@ public class Ordenacao {
 
 		mat = preencheMatriz(mat);
 
+		System.out.println("------------Antes de ordenar------------");
 		exibeMatriz(mat);
 
 		mat = ordenaMatriz(mat);
-		
-//		int aux = 0;
-//		for (int linha = 0; linha < mat.length; linha++) {
-//			for (int coluna = 0; coluna < mat[linha].length; coluna++) {
-//				int col = coluna;
-//				for (int i = linha; i < mat.length; i++) {
-//					for (int j = col + 1; j < mat[i].length; j++) {
-//						if (mat[linha][coluna] > mat[i][j]) {
-//							aux = mat[linha][coluna];
-//							mat[linha][coluna] = mat[i][j];
-//							mat[i][j] = aux;
-//						}
-//					}
-//					col = -1;
-//				}
-//			}
-//		}
-
+		System.out.println("------------Depois de ordenar------------");
 		exibeMatriz(mat);
 
 		scn.close();
@@ -84,19 +68,22 @@ public class Ordenacao {
 
 	private static int[][] ordenaMatriz(int[][] mat) {
 		int c, aux;
-		
+
 		if (mat != null) {
 			for (int lin = 0; lin < mat.length; lin++) {
 				for (int col = 0; col < mat[lin].length; col++) {
 					c = col;
-					for (int i = lin; i < mat.length; i++) {
-						for (int j = c+1; j < mat[i].length; j++) {
-							if(mat[lin][col] > mat[i][j]) {
-								aux = mat[i][j];
-								mat[i][j] = mat[lin][col];
-								mat[lin][col] = aux;
+					// VAI PERCORRER O RESTO DA MATRIZ A PARTIR DO ELEMENTO ATUAL
+					for (int j = lin; j < mat.length; j++) {
+						// VAI COMEÇAR DO ELEMENTO DO LADO
+						for (int i = c + 1; i < mat[j].length; i++) {
+							if (mat[lin][col] > mat[j][i]) {
+								aux = mat[lin][col];
+								mat[lin][col] = mat[j][i];
+								mat[j][i] = aux;
 							}
 						}
+						// VAI VOLTAR A COMEÇAR PELA COLUNA 0 EM CADA LINHA
 						c = -1;
 					}
 				}

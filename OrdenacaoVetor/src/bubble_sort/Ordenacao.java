@@ -27,6 +27,7 @@ public class Ordenacao {
 		System.out.println("------Ordenando------");
 		int aux;
 		for(int j = vet.length-1; j > 0; j--) {
+			//Coloca o maior na última posição (pos j)
 			for (int i = 0; i < j; i++) {
 				if(vet[i] > vet[i+1]) {
 					aux = vet[i];

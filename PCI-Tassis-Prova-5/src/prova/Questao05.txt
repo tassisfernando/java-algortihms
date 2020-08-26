@@ -1,0 +1,5 @@
+5 – Explique a passagem de parâmetros por valor e por referência.
+
+A passagem de parâmetros por valor, como sugere o nome, passar para a função apenas o valor armazenado na memória que
+é informado no momento da chamada do método. Já a passagem por referência indica o endereço de memória e, desse modo,
+as alterações realizadas no método irão alterar o que está armazenado na memória e refletindo no programa principal.

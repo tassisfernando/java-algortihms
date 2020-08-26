@@ -27,11 +27,33 @@ public class Ordenacao {
 		System.out.println("------------Antes de ordenar------------");
 		exibeMatriz(mat);
 
-		mat = ordenaMatriz(mat);
+		mat = ordena(mat);
 		System.out.println("------------Depois de ordenar------------");
 		exibeMatriz(mat);
 
 		scn.close();
+	}
+	
+	private static int[][] ordena(int[][] m){
+		int aux;
+		int c; 
+		
+		for (int lin = 0; lin < m.length; lin++) {
+			for (int col = 0; col < m[lin].length; col++) {
+				c = col;
+				for (int i = lin; i < m.length; i++) {
+					for (int j = c+1; j < m[lin].length; j++) {
+						if(m[lin][col] > m[i][j]) {
+							aux = m[lin][col];
+							m[lin][col] = m[i][j];
+							m[i][j] = aux;
+						}
+					}
+					c = -1;
+				}
+			}
+		}
+		return m;
 	}
 
 	private static int[][] preencheMatriz(int[][] mat) {
